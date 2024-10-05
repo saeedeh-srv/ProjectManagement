@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %} List of Projects {% endblock %}
+{% block content %}
+
+    <div class="container mt-4">
+        <a href="#" class="btn bg-success">new project</a>
+        <div class="row">
+            {% for project in projects %}
+                <div class="col-4 mt-2 mb-4">
+                <div class="all-cart">
+                    <div class="col">
+                        <div class="card h-100" style="border-color: {{ project.color }}">
+                            <img src="{{ project.image.url }}" class="card-img-top" alt="{{ project.title }}">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ project.title }}</h5>
+                                <p style="background-color: {{ project.color }};width: 20px;height: 20px;border-radius: 20px"></p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="#" class="btn btn-primary">More Info</a>
+                                <small class="text-body-secondary">{{ project.start_date }}</small>
+                                <small class="text-body-secondary">{{ project.end_date }}</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
